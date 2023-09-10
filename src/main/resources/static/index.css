@@ -1,5 +1,33 @@
 @charset "ISO-8859-1";
+   /* Estilo personalizado para la clase .sidebar */
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
 
-body{
-	
-}
+        .sidebar {
+            background-color: #071A33;
+            width: 100px;
+            height: 100%;
+            position: fixed;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+        }
+        .sidebar ul li a:hover {
+            background-color: #1A3767; /* Cambia el color de fondo al pasar el ratón */
+        }
