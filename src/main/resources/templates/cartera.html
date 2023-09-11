@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html
   xmlns:th="http://www.thymeleaf.org">
-  <head>
+ <head>
  
 <!-- Agregar el enlace al archivo CSS de Bootstrap -->
 <link rel="stylesheet" href="/css/bootstrap.min.css">
  <link rel="stylesheet" type="text/css" href="/index.css">
 <!-- Agregar el enlace al archivo JavaScript de Bootstrap (opcional) -->
 <script src="/js/bootstrap.min.js"></script>
-
+<title>Cartera</title>
 </head>
 <body>
  <div class="container-fluid" style="height: 100%;">
         <div class="row" style="height: 100%;">
             <!-- Sidebar -->
             <div class="sidebar">
-                  <ul class="list-group">
+                 <ul class="list-group">
                     <li><a class="text-white" th:href="@{/cartera}">Cartera</a></li>
                     <li><a class="text-white" th:href="@{/ingresos}">Ingresos</a></li>
                     <li><a class="text-white"th:href="@{/tipoingreso}">Tipo Ingresos</a></li>
@@ -26,25 +26,17 @@
 
             <!-- Contenido principal -->
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                <h1>CONTROL DE INGRESOS</h1>
+                <h1>Saldo</h1>
+	              <div class="card" style="width:18rem">
+	              	<div class="card-body">
+	              		<div class="card-title">
+	              			<h1>Soles</h1>
+	              			<h4 class="card-text" th:text="'S/.'+${data.dinero}"></h4>
+	              		</div>
+	              	</div>
+	              </div>
+	         
                
-                <table class="table">
-                	<tr>
-                		<th>ID</th>
-                		<th>FECHA</th>
-                		<th>DESCRIPCION</th>
-                		<th>MONTO</th>
-                		<th>TIPO</th>
-                	</tr>
-                	
-                	<tr th:each="ingreso : ${data}">
-                			<td th:text="${ingreso.id}"></td>
-							<td th:text="${#dates.format(ingreso.fecha, 'dd-MMM-yyyy')}"></td>
-                			<td th:text="${ingreso.descripcion}"></td>
-                			<td th:text="${ingreso.monto}"></td>
-                			<td th:text="${ingreso.tipoIngreso.name}"></td>
-                	</tr>
-                </table>
             </main>
         </div>
     </div>

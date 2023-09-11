@@ -15,10 +15,10 @@ public class Cartera {
     private Long id;
 
     @Column(name = "dinero", nullable = false)
-    private Double dinero;
+    public Double dinero;
 
     @Column(name = "moneda", length = 32, nullable = false)
-    private String moneda;
+    public String moneda;
 
     // Getters y setters
 }
