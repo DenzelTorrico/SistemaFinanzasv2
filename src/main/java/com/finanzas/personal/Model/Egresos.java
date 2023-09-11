@@ -16,22 +16,22 @@ import jakarta.persistence.Table;
 public class Egresos {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    public Long id;
 
     @Column(name = "fecha", nullable = false)
-    private Date fecha;
+    public Date fecha;
 
     @Column(name = "descripcion", columnDefinition = "TEXT", nullable = false)
-    private String descripcion;
+    public String descripcion;
 
     @Column(name = "monto", nullable = false)
-    private Double monto;
+    public Double monto;
 
     @ManyToOne
     @JoinColumn(name = "tipo_egreso", referencedColumnName = "id")
-    private TipoEgreso tipoEgreso;
+    public TipoEgreso tipoEgreso;
 
     @ManyToOne
     @JoinColumn(name = "id_cartera", referencedColumnName = "id")
-    private Cartera cartera;
+    public Cartera cartera;
 }
