@@ -27,6 +27,7 @@
             <!-- Contenido principal -->
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <h1>CONTROL DE INGRESOS</h1>
+               
                 <table class="table">
                 	<tr>
                 		<th>ID</th>
@@ -35,12 +36,18 @@
                 		<th>MONTO</th>
                 		<th>TIPO</th>
                 	</tr>
-                	<tr>
-                		
+                	
+                	<tr th:each="ingreso : ${data}">
+                			<td th:text="${ingreso.id}"></td>
+							<td th:text="${#dates.format(ingreso.fecha, 'dd-MMM-yyyy')}"></td>
+                			<td th:text="${ingreso.descripcion}"></td>
+                			<td th:text="${ingreso.monto}"></td>
+                			<td th:text="${ingreso.tipoIngreso.name}"></td>
                 	</tr>
                 </table>
             </main>
         </div>
     </div>
+    
 </body>
 </html>
