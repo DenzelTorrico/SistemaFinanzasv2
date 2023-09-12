@@ -19,8 +19,8 @@
              <ul class="list-group">
                     <li><a class="text-white" th:href="@{/cartera}">Cartera</a></li>
                     <li><a class="text-white" th:href="@{/ingresos}">Ingresos</a></li>
-                    <li><a class="text-white"th:href="@{/tipoingreso}">Tipo Ingresos</a></li>
-                    <li><a class="text-white" href="#">Egresos</a></li>
+                    <li><a class="text-white" th:href="@{/tipoingreso}">Tipo Ingresos</a></li>
+                    <li><a class="text-white"  th:href="@{/egresos}" href="#">Egresos</a></li>
                      <li><a class="text-white" href="#">Tipo Egresos</a></li>
                 </ul>
             </div>
@@ -39,7 +39,10 @@
                 	
                 	<tr th:each="egresos : ${data}">
                 			<td th:text="${egresos.id}"></td>
-                			<td th:text="${egresos.name}"></td>
+                			<td th:text="${egresos.fecha}"></td>
+                			<td th:text="${egresos.descripcion}"></td>
+                			<td th:text="${egresos.monto}"></td>
+                			<td th:text="${egresos.tipoEgreso.name}"></td>
 							
                 	</tr>
                 </table>

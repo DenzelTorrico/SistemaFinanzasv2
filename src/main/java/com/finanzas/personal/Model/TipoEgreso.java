@@ -15,7 +15,7 @@ public class TipoEgreso {
     private Long id;
 
     @Column(name = "name", length = 100, nullable = false)
-    private String name;
+    public String name;
 
     @Column(name = "descripcion", columnDefinition = "TEXT")
     private String descripcion;
