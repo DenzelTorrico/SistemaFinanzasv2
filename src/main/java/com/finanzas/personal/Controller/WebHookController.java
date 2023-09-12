@@ -35,7 +35,7 @@ public class WebHookController {
             // Realiza las operaciones necesarias con los datos
             // ...
 
-            logger.info(jsonPayload);
+            logger.info(jsonPayload.getString("ref"));
     }
     
 }
