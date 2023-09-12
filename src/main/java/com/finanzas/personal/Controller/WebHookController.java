@@ -21,6 +21,7 @@ public class WebHookController {
     public void handleGitHubWebhook(@RequestBody String payload) {
         // Procesa la información del commit aquí
     		logger.info(payload);
+    		System.out.println(payload);
     	  /*try {
     		  JSONObject json = new JSONObject(payload);
     	        JSONObject commit = json.getJSONObject("head_commit");
