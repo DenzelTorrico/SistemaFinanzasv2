@@ -29,15 +29,13 @@ public class WebHookController {
     @PostMapping(value = "/github-webhook")
     public void handleGitHubWebhook(@RequestBody String payload) {
         
-            // Puedes acceder a los campos directamente del objeto JSON
-            //String ref = payload.getString("ref");
-            //String before = payload.getString("before");
-            //String after = payload.getString("after");
+        JSONObject jsonPayload = new JSONObject(payload);
+
 
             // Realiza las operaciones necesarias con los datos
             // ...
 
-            logger.info(payload);
+            logger.info(jsonPayload);
     }
     
 }
