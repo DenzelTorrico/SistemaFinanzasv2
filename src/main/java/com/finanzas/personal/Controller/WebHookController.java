@@ -44,7 +44,7 @@ public class WebHookController {
             commitId = commit.getString("id");
             commitMessage = commit.getString("message");
             logger.info(pusher + commitId + commitMessage);
-
+            telegramNotificationService.enviarNotificacion("2005702056", pusher +  "HA HECHO UN COMMIT "+ commitId + " LLAMADO: "+commitMessage);
         }
         
     }
