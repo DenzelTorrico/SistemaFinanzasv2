@@ -26,8 +26,8 @@ public class WebHookController {
         this.telegramNotificationService = telegramNotificationService;
     }
 
-    @PostMapping(value = "/github-webhook", consumes = "application/json")
-    public void handleGitHubWebhook(@RequestBody JSONObject payload) {
+    @PostMapping(value = "/github-webhook")
+    public void handleGitHubWebhook(@RequestBody String payload) {
         
             // Puedes acceder a los campos directamente del objeto JSON
             //String ref = payload.getString("ref");
@@ -37,7 +37,7 @@ public class WebHookController {
             // Realiza las operaciones necesarias con los datos
             // ...
 
-            logger.info(payload.toString());
+            logger.info(payload);
     }
     
 }
