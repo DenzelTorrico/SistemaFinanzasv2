@@ -1,10 +1,14 @@
 package com.finanzas.personal.Controller;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 import org.apache.commons.io.IOUtils;
 import org.json.JSONObject;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,17 +28,12 @@ public class WebHookController {
     @PostMapping("/github-webhook")
     public void handleGitHubWebhook(@RequestBody String payload) {
         // Procesa la información del commit aquí
+		
 
-    		logger.info(payload);
-    		String json;
-			try {
-				json = IOUtils.resourceToString(payload, Charset.forName("UTF-8"));
-				System.out.println(json);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-    	
+     	logger.info(payload);
+    		
+
+          
     	  /*try {
     		  JSONObject json = new JSONObject(payload);
     	        JSONObject commit = json.getJSONObject("head_commit");
