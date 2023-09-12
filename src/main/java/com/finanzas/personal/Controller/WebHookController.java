@@ -30,9 +30,9 @@ public class WebHookController {
     public void handleGitHubWebhook(@RequestBody JSONObject payload) {
         
             // Puedes acceder a los campos directamente del objeto JSON
-            String ref = payload.getString("ref");
-            String before = payload.getString("before");
-            String after = payload.getString("after");
+            //String ref = payload.getString("ref");
+            //String before = payload.getString("before");
+            //String after = payload.getString("after");
 
             // Realiza las operaciones necesarias con los datos
             // ...
