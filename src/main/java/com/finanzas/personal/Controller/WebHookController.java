@@ -20,13 +20,20 @@ public class WebHookController {
     @PostMapping("/github-webhook")
     public void handleGitHubWebhook(@RequestBody String payload) {
         // Procesa la información del commit aquí
-    	JSONObject json = new JSONObject(payload);
-        JSONObject commit = json.getJSONObject("head_commit");
-        System.out.println(payload);
-        logger.info(payload);
-        String mensajeCommit = commit.getString("message");
-        String autorCommit = commit.getJSONObject("author").getString("name");
-        // Envía una notificación a Telegram
-        telegramNotificationService.enviarNotificacion("2005702056", "Se realizó un nuevo commit en el repositorio."+ autorCommit + ": " + mensajeCommit);
+    	
+    	  try {
+    		  JSONObject json = new JSONObject(payload);
+    	        JSONObject commit = json.getJSONObject("head_commit");
+    	        System.out.println(payload);
+    	        logger.info(payload);
+    	        String mensajeCommit = commit.getString("message");
+    	        String autorCommit = commit.getJSONObject("author").getString("name");
+    	        // Envía una notificación a Telegram
+    	        telegramNotificationService.enviarNotificacion("2005702056", "Se realizó un nuevo commit en el repositorio."+ autorCommit + ": " + mensajeCommit);
+          } catch (Exception e) {
+              // Registra el error en los registros
+              logger.error("Ocurrió un error al procesar el webhook de GitHub", e);
+          }
+    	
     }
 }
