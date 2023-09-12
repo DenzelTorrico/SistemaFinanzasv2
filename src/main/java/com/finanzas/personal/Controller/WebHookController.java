@@ -7,6 +7,7 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
 import org.apache.commons.io.IOUtils;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,13 +33,20 @@ public class WebHookController {
         JSONObject jsonPayload = new JSONObject(payload);
 
         String pusher = jsonPayload.getJSONObject("pusher").getString("name");
-        String namecommit = jsonPayload.getJSONObject("commits").getString("message");
-        
-        
-        
-            // ...
+        JSONArray commitsArray = jsonPayload.getJSONArray("commits");
+        String commitId;
+        String commitMessage;
+        // Iterar a través de los commits si es necesario
+        for (int i = 0; i < commitsArray.length(); i++) {
+            JSONObject commit = commitsArray.getJSONObject(i);
 
-            logger.info(pusher + namecommit);
+            // Acceder a los campos dentro de cada commit
+            commitId = commit.getString("id");
+            commitMessage = commit.getString("message");
+            logger.info(pusher + commitId + commitMessage);
+
+        }
+        
     }
     
 }
