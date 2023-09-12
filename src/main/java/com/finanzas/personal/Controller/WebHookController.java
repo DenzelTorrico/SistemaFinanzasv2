@@ -1,5 +1,9 @@
 package com.finanzas.personal.Controller;
 
+import java.io.IOException;
+import java.nio.charset.Charset;
+
+import org.apache.commons.io.IOUtils;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,7 +28,15 @@ public class WebHookController {
 
     		logger.info(payload);
     		String ref = jsonPayload.getString("ref");
-    		System.out.println(ref);
+    		String json;
+			try {
+				json = IOUtils.resourceToString(payload, Charset.forName("UTF-8"));
+				System.out.println(json);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    	
     	  /*try {
     		  JSONObject json = new JSONObject(payload);
     	        JSONObject commit = json.getJSONObject("head_commit");
