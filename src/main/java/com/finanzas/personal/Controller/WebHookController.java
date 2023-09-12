@@ -20,8 +20,10 @@ public class WebHookController {
     @PostMapping("/github-webhook")
     public void handleGitHubWebhook(@RequestBody String payload) {
         // Procesa la información del commit aquí
+        JSONObject jsonPayload = new JSONObject(payload);
+
     		logger.info(payload);
-    		System.out.println(payload);
+    		System.out.println(jsonPayload);
     	  /*try {
     		  JSONObject json = new JSONObject(payload);
     	        JSONObject commit = json.getJSONObject("head_commit");
