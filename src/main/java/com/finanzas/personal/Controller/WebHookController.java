@@ -20,7 +20,7 @@ public class WebHookController {
         // Procesa la información del commit aquí
     	JSONObject json = new JSONObject(payload);
         JSONObject commit = json.getJSONObject("head_commit");
-        
+        System.out.println(payload);
         String mensajeCommit = commit.getString("message");
         String autorCommit = commit.getJSONObject("author").getString("name");
         // Envía una notificación a Telegram
