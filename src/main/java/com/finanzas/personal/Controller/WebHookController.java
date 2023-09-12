@@ -8,6 +8,7 @@ import java.nio.charset.StandardCharsets;
 
 import org.apache.commons.io.IOUtils;
 import org.json.JSONObject;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,27 +27,17 @@ public class WebHookController {
     }
 
     @PostMapping("/github-webhook")
-    public void handleGitHubWebhook(@RequestBody String payload) {
-        // Procesa la información del commit aquí
-		
+    public void handleGitHubWebhook(@RequestBody JSONObject payload) {
+        
+            // Puedes acceder a los campos directamente del objeto JSON
+            String ref = payload.getString("ref");
+            String before = payload.getString("before");
+            String after = payload.getString("after");
 
-     	logger.info(payload);
-    		
+            // Realiza las operaciones necesarias con los datos
+            // ...
 
-          
-    	  /*try {
-    		  JSONObject json = new JSONObject(payload);
-    	        JSONObject commit = json.getJSONObject("head_commit");
-    	        System.out.println(payload);
-    	        logger.info(payload);
-    	        String mensajeCommit = commit.getString("message");
-    	        String autorCommit = commit.getJSONObject("author").getString("name");
-    	        // Envía una notificación a Telegram
-    	        telegramNotificationService.enviarNotificacion("2005702056", "Se realizó un nuevo commit en el repositorio."+ autorCommit + ": " + mensajeCommit);
-          } catch (Exception e) {
-              // Registra el error en los registros
-              logger.error("Ocurrió un error al procesar el webhook de GitHub", e);
-          }*/
-    	
+            logger.info(before);
     }
+    
 }
