@@ -24,10 +24,8 @@ public class WebHookController {
     @PostMapping("/github-webhook")
     public void handleGitHubWebhook(@RequestBody String payload) {
         // Procesa la información del commit aquí
-        JSONObject jsonPayload = new JSONObject(payload);
 
     		logger.info(payload);
-    		String ref = jsonPayload.getString("ref");
     		String json;
 			try {
 				json = IOUtils.resourceToString(payload, Charset.forName("UTF-8"));
