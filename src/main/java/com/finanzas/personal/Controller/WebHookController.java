@@ -20,8 +20,8 @@ public class WebHookController {
     @PostMapping("/github-webhook")
     public void handleGitHubWebhook(@RequestBody String payload) {
         // Procesa la información del commit aquí
-    	
-    	  try {
+    		logger.info(payload);
+    	  /*try {
     		  JSONObject json = new JSONObject(payload);
     	        JSONObject commit = json.getJSONObject("head_commit");
     	        System.out.println(payload);
@@ -33,7 +33,7 @@ public class WebHookController {
           } catch (Exception e) {
               // Registra el error en los registros
               logger.error("Ocurrió un error al procesar el webhook de GitHub", e);
-          }
+          }*/
     	
     }
 }
