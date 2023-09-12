@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 public class TipoEgreso {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    public Long id;
 
     @Column(name = "name", length = 100, nullable = false)
     public String name;
