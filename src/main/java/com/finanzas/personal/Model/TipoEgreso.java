@@ -18,7 +18,7 @@ public class TipoEgreso {
     public String name;
 
     @Column(name = "descripcion", columnDefinition = "TEXT")
-    private String descripcion;
+    public String descripcion;
 
     // Getters y setters
 }
