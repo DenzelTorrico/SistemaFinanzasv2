@@ -26,7 +26,7 @@ public class WebHookController {
         this.telegramNotificationService = telegramNotificationService;
     }
 
-    @PostMapping("/github-webhook")
+    @PostMapping(value = "/github-webhook", consumes = "application/json")
     public void handleGitHubWebhook(@RequestBody JSONObject payload) {
         
             // Puedes acceder a los campos directamente del objeto JSON
