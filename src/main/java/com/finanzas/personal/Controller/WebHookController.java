@@ -23,7 +23,8 @@ public class WebHookController {
         JSONObject jsonPayload = new JSONObject(payload);
 
     		logger.info(payload);
-    		System.out.println(jsonPayload);
+    		String ref = jsonPayload.getString("ref");
+    		System.out.println(ref);
     	  /*try {
     		  JSONObject json = new JSONObject(payload);
     	        JSONObject commit = json.getJSONObject("head_commit");
