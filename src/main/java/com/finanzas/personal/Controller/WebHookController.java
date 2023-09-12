@@ -37,7 +37,7 @@ public class WebHookController {
             // Realiza las operaciones necesarias con los datos
             // ...
 
-            logger.info(before);
+            logger.info(ref);
     }
     
 }
