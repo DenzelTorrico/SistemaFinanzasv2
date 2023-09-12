@@ -37,7 +37,7 @@ public class WebHookController {
             // Realiza las operaciones necesarias con los datos
             // ...
 
-            logger.info(ref);
+            logger.info(payload.toString());
     }
     
 }
