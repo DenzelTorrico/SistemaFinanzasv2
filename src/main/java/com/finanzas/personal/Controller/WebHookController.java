@@ -31,11 +31,14 @@ public class WebHookController {
         
         JSONObject jsonPayload = new JSONObject(payload);
 
-
-            // Realiza las operaciones necesarias con los datos
+        String pusher = jsonPayload.getJSONObject("pusher").getString("name");
+        String namecommit = jsonPayload.getJSONObject("commits").getString("message");
+        
+        
+        
             // ...
 
-            logger.info(jsonPayload.getString("ref"));
+            logger.info(pusher + namecommit);
     }
     
 }
