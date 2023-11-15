@@ -1,6 +1,7 @@
 package com.finanzas.personal.Model;
 
-import java.util.Date;
+
+import java.sql.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -34,5 +35,55 @@ public class IngresosModel {
     @ManyToOne
     @JoinColumn(name = "id_cartera", referencedColumnName = "id", nullable = false)
     public Cartera cartera;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public Double getMonto() {
+		return monto;
+	}
+
+	public void setMonto(Double monto) {
+		this.monto = monto;
+	}
+
+	public TipoIngreso getTipoIngreso() {
+		return tipoIngreso;
+	}
+
+	public void setTipoIngreso(TipoIngreso tipoIngreso) {
+		this.tipoIngreso = tipoIngreso;
+	}
+
+	public Cartera getCartera() {
+		return cartera;
+	}
+
+	public void setCartera(Cartera cartera) {
+		this.cartera = cartera;
+	}
+    
+    
 		
 }

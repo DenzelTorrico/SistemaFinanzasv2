@@ -17,4 +17,7 @@ public class IngresoService {
 	public List<IngresosModel> LoadIngresos(){
 		return repos.findAll();
 	}
+	public IngresosModel Insertar(IngresosModel ingresos) {
+		return repos.save(ingresos);
+	}
 }

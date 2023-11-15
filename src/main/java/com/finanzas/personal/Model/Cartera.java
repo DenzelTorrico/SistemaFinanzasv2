@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 public class Cartera {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    public Long id;
 
     @Column(name = "dinero", nullable = false)
     public Double dinero;
@@ -20,6 +20,31 @@ public class Cartera {
     @Column(name = "moneda", length = 32, nullable = false)
     public String moneda;
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Double getDinero() {
+		return dinero;
+	}
+
+	public void setDinero(Double dinero) {
+		this.dinero = dinero;
+	}
+
+	public String getMoneda() {
+		return moneda;
+	}
+
+	public void setMoneda(String moneda) {
+		this.moneda = moneda;
+	}
+
     // Getters y setters
+    
 }
 

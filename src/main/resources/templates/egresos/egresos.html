@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="http://www.thymeleaf.org">
+  <head>
+ 
+<!-- Agregar el enlace al archivo CSS de Bootstrap -->
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+ <link rel="stylesheet" type="text/css" href="/index.css">
+<!-- Agregar el enlace al archivo JavaScript de Bootstrap (opcional) -->
+<script src="/js/bootstrap.min.js"></script>
+<title>Egreso</title>
+</head>
+<body>
+ <div class="container-fluid" style="height: 100%;">
+        <div class="row" style="height: 100%;">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                 <ul class="list-group">
+                    <li><a class="text-white" th:href="@{/cartera}">Cartera</a></li>
+                    <li><a class="text-white" th:href="@{/ingresos}">Ingresos</a></li>
+                    <li><a class="text-white" th:href="@{/tipoingreso}">Tipo Ingresos</a></li>
+                    <li><a class="text-white"  th:href="@{/egresos}" href="#">Egresos</a></li>
+                     <li><a class="text-white" href="#">Tipo Egresos</a></li>
+                </ul>
+            </div>
+
+            <!-- Contenido principal -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+               <h1>Agregar Ingresos</h1>
+             <form th:action="@{/ingresos/add}" method="post" th:object="${egreso}">
+				<input type="hidden" value="1" name="cartera">
+
+              
+            <div class="mb-3">
+                <label for="fecha" class="form-label">Fecha</label>
+                <input type="date" th:field="*{fecha}" class="form-control" id="fecha" name="fecha" required>
+            </div>
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción</label>
+                <input type="text" class="form-control" id="descripcion" name="descripcion" th:field="*{descripcion}" required>
+            </div>
+            <div class="mb-3">
+                <label for="monto" class="form-label">Monto</label>
+                <input type="number" class="form-control" id="monto" name="monto" th:field="*{monto}" step="0.01" required>
+            </div>
+            <div class="mb-3">
+                <label for="tipoIngreso" class="form-label">Tipo de Ingreso</label>
+                <select  class="form-select" id="tipoIngreso" th:field="*{tipoIngreso}" name="tipoIngreso" required>
+                    <option value="" disabled selected>Seleccione un tipo de ingreso</option>
+                    <option th:each="ingreso : ${tipos}" th:value="${ingreso.id}" th:text="${ingreso.name}"></option>
+                  
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+            <a class="btn btn-light border shadow-sm" th:href="@{/ingresos}">Volver</a>
+        </form>
+            </main>
+        </div>
+    </div>
+    
+</body>
+</html>

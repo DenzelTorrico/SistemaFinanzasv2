@@ -12,18 +12,12 @@ import com.finanzas.personal.Services.IngresoService;
 @Controller
 public class IndexController {
 			
-		@Autowired
-		private IngresoService ingresos;
+		
 		
 		@Autowired
 		private CarteraService cartera;
 	
-		@GetMapping("/ingresos")
-		public String Index(Model modelo) {
-			var data = ingresos.LoadIngresos();
-			modelo.addAttribute("data", data);
-			return "index";
-		}
+	
 		@GetMapping("cartera")
 		public String Cartera(Model model) {
 			var data = cartera.LoadCartera();
